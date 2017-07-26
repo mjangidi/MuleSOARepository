@@ -21,11 +21,27 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-app-maven-plugin</artifactId>
-				<version>${mule.tools.version}</version>
+				<version>1.2</version>
 				<extensions>true</extensions>
-				<configuration>
-                    <copyToAppsDirectory>true</copyToAppsDirectory>
-				</configuration>
+			<configuration>
+<deploymentType>cloudhub</deploymentType>
+<muleVersion>${mule.version}</muleVersion>
+<username>mjangidi12</username>
+<password>Google123</password>
+<workerType>Micro</workerType>
+<redeploy>true</redeploy>
+<environment>Sandbox</environment>
+<copyToAppsDirectory>true</copyToAppsDirectory>
+</configuration>
+ <executions>
+            <execution>
+                <id>deploy</id>
+                <phase>deploy</phase>
+                <goals>
+                    <goal>deploy</goal>
+                </goals>
+            </execution>
+        </executions>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -126,6 +142,7 @@
     </dependencies>
 
 	<repositories>
+	
           <repository>
             <id>Central</id>
             <name>Central</name>
@@ -140,6 +157,10 @@
         </repository>
     </repositories>
     <pluginRepositories>
+     <pluginRepository>
+        <id>mule-public</id>
+        <url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
+    </pluginRepository>
         <pluginRepository>
             <id>mulesoft-release</id>
             <name>mulesoft release repository</name>
